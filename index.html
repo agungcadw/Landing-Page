@@ -4,8 +4,201 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>PAI 6 | Portofolio & Studi Kasus</title>
-   <link rel="stylesheet" href="style.css?v=2.0">
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,600;0,700;1,400&family=Poppins:wght@300;400;500;600&family=Amiri:wght@400;700&display=swap" rel="stylesheet">
+    
+    <style>
+        :root {
+            --bg-main: #f8fafc; /* Off-white / Abu-abu sangat terang */
+            --bg-card: #ffffff; /* Putih bersih untuk kartu */
+            --bg-alt: #f1f5f9; /* Latar alternatif */
+            
+            --primary: #064e3b; /* Hijau Emerald Gelap */
+            --primary-light: #059669; /* Hijau Emerald Terang */
+            --accent-gold: #b45309; /* Emas Gelap/Hangat */
+            --accent-gold-light: #f59e0b; /* Emas Terang */
+            
+            --text-dark: #0f172a; /* Teks utama sangat gelap */
+            --text-muted: #475569; /* Teks paragraf / sekunder */
+            
+            --border-color: #e2e8f0;
+            --shadow-sm: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
+            --shadow-lg: 0 15px 30px -5px rgba(6, 78, 59, 0.1);
+            
+            --arabic-font: 'Amiri', serif;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        html { scroll-behavior: smooth; }
+        
+        body { 
+            font-family: 'Poppins', sans-serif; 
+            background-color: var(--bg-main); 
+            color: var(--text-dark); 
+            line-height: 1.8; 
+            -webkit-font-smoothing: antialiased; 
+        }
+        
+        h1, h2, h3, h4, h5 { 
+            font-family: 'Lora', serif; 
+            color: var(--primary); 
+            font-weight: 700; 
+        }
+
+        /* --- NAVBAR --- */
+        .navbar { 
+            position: fixed; top: 0; width: 100%; 
+            background: rgba(255, 255, 255, 0.95); 
+            backdrop-filter: blur(10px); 
+            border-bottom: 1px solid var(--border-color); 
+            z-index: 1000; 
+            box-shadow: var(--shadow-sm);
+        }
+        .nav-container { 
+            max-width: 1100px; margin: 0 auto; padding: 18px 20px; 
+            display: flex; justify-content: space-between; align-items: center; 
+        }
+        .logo { 
+            font-family: 'Lora', serif; font-size: 1.8rem; font-weight: 700; 
+            color: var(--primary); text-decoration: none; letter-spacing: 1px; 
+        }
+        .logo span { color: var(--accent-gold); }
+        .nav-links { list-style: none; display: flex; gap: 35px; }
+        .nav-links a { 
+            text-decoration: none; color: var(--text-muted); font-size: 0.95rem; 
+            font-weight: 500; transition: color 0.3s; 
+        }
+        .nav-links a:hover { color: var(--primary-light); }
+
+        /* --- HERO --- */
+        .hero { 
+            min-height: 100vh; display: flex; align-items: center; justify-content: center; 
+            text-align: center; padding: 120px 20px 40px; 
+            background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%);
+            position: relative; overflow: hidden;
+        }
+        /* Ornamen Latar Abstrak */
+        .hero::before {
+            content: ''; position: absolute; top: -100px; right: -100px;
+            width: 400px; height: 400px; border-radius: 50%;
+            background: radial-gradient(circle, rgba(5,150,105,0.1) 0%, rgba(255,255,255,0) 70%);
+        }
+        .hero-content { position: relative; z-index: 2; max-width: 850px; }
+        .badge { 
+            display: inline-block; border: 1px solid var(--primary-light); 
+            color: var(--primary); padding: 6px 20px; border-radius: 50px; 
+            font-size: 0.85rem; letter-spacing: 2px; text-transform: uppercase; 
+            margin-bottom: 30px; font-weight: 600; background: #fff;
+        }
+        .hero h1 { font-size: 4rem; margin-bottom: 25px; line-height: 1.2; color: var(--primary); }
+        .hero p { font-size: 1.15rem; color: var(--text-muted); margin-bottom: 30px; }
+        .hero .dosen { font-family: 'Lora', serif; font-size: 1.2rem; color: var(--text-dark); margin-bottom: 50px; font-style: italic; }
+        
+        .hero-buttons { display: flex; gap: 20px; justify-content: center; }
+        .btn { 
+            padding: 14px 35px; text-decoration: none; font-size: 0.95rem; 
+            font-weight: 500; letter-spacing: 1px; transition: all 0.3s ease; 
+            border-radius: 8px; display: inline-block;
+        }
+        .btn-primary { 
+            background: var(--primary); color: #fff; border: 2px solid var(--primary); 
+            box-shadow: 0 4px 15px rgba(6, 78, 59, 0.2);
+        }
+        .btn-primary:hover { 
+            background: var(--primary-light); border-color: var(--primary-light); 
+            transform: translateY(-3px); box-shadow: 0 8px 20px rgba(6, 78, 59, 0.3);
+        }
+        .btn-outline { 
+            background: transparent; color: var(--primary); 
+            border: 2px solid var(--primary); 
+        }
+        .btn-outline:hover { background: var(--primary); color: #fff; transform: translateY(-3px); }
+
+        /* --- SECTIONS UMUM --- */
+        .section { padding: 100px 20px; }
+        .bg-alt { background-color: var(--bg-alt); }
+        .container { max-width: 900px; margin: 0 auto; }
+        .text-center { text-align: center; }
+        
+        .section-header { margin-bottom: 60px; }
+        .subtitle { 
+            display: block; color: var(--accent-gold); font-size: 0.9rem; 
+            letter-spacing: 2px; text-transform: uppercase; margin-bottom: 10px; font-weight: 600;
+        }
+        .section-header h2 { font-size: 2.5rem; margin-bottom: 20px; }
+        .divider { width: 80px; height: 3px; background-color: var(--accent-gold-light); margin: 0 auto 20px; border-radius: 2px; }
+        .section-header p { color: var(--text-muted); font-size: 1.1rem; }
+
+        /* --- STUDI KASUS --- */
+        .case-study-card { 
+            background: var(--bg-card); padding: 50px; 
+            border: 1px solid var(--border-color); box-shadow: var(--shadow-lg); 
+            border-radius: 16px; border-top: 5px solid var(--primary);
+        }
+        .case-header h3 { font-size: 2rem; margin-bottom: 20px; color: var(--text-dark); text-align: center; }
+        .case-desc { 
+            padding: 25px; background: var(--bg-main); border-left: 4px solid var(--accent-gold); 
+            margin-bottom: 40px; font-size: 1.05rem; border-radius: 0 8px 8px 0; color: var(--text-muted);
+        }
+        
+        .case-title { font-size: 1.3rem; margin-bottom: 25px; border-bottom: 2px solid var(--bg-alt); padding-bottom: 10px; }
+        .reason-item { margin-bottom: 40px; }
+        .reason-item h5 { font-size: 1.25rem; margin-bottom: 10px; color: var(--primary-light); font-family: 'Poppins', sans-serif; font-weight: 600; }
+        .reason-item p { color: var(--text-muted); }
+        
+        /* Teks Arab Mewah */
+        .arabic { 
+            font-family: var(--arabic-font); font-size: 2.6rem; text-align: right; 
+            direction: rtl; color: var(--primary); margin: 25px 0; line-height: 2.2; 
+        }
+        .terjemahan { 
+            font-style: italic; color: var(--text-muted); padding: 20px; 
+            background: #fefce8; border: 1px solid #fef08a; border-radius: 8px; 
+        }
+
+        .daftar-pustaka { margin-top: 50px; padding-top: 30px; border-top: 1px solid var(--border-color); }
+        .daftar-pustaka h4 { font-size: 1.2rem; margin-bottom: 15px; color: var(--primary); }
+        .daftar-pustaka ul { list-style: none; }
+        .daftar-pustaka li { color: var(--text-muted); margin-bottom: 12px; padding-left: 20px; position: relative; font-size: 0.95rem; }
+        .daftar-pustaka li::before { content: '▪'; color: var(--accent-gold); font-size: 1rem; position: absolute; left: 0; top: 0; }
+
+        /* --- METODOLOGI --- */
+        .grid-3 { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 30px; }
+        .method-card { 
+            padding: 40px 30px; background: var(--bg-card); border: 1px solid var(--border-color); 
+            text-align: center; transition: all 0.4s ease; border-radius: 12px; box-shadow: var(--shadow-sm);
+        }
+        .method-card:hover { border-color: var(--primary-light); transform: translateY(-5px); box-shadow: var(--shadow-lg); }
+        .method-icon { 
+            font-family: 'Lora', serif; font-size: 3rem; color: var(--accent-gold-light); 
+            margin-bottom: 15px; font-weight: 700; opacity: 0.8;
+        }
+        .method-card h3 { font-size: 1.3rem; margin-bottom: 15px; color: var(--text-dark); }
+        .method-card p { color: var(--text-muted); font-size: 0.95rem; }
+
+        /* --- FOOTER & KONTAK --- */
+        .footer-section { padding: 80px 20px 40px; background: var(--primary); color: #fff; }
+        .footer-title { font-size: 2.2rem; margin-bottom: 20px; color: #fff; }
+        .footer-desc { color: #cbd5e1; max-width: 600px; margin: 0 auto 40px; }
+        
+        .contact-details { display: flex; justify-content: center; gap: 40px; margin-bottom: 60px; flex-wrap: wrap; }
+        .contact-item { display: flex; flex-direction: column; align-items: center; background: rgba(255,255,255,0.05); padding: 20px 30px; border-radius: 12px; border: 1px solid rgba(255,255,255,0.1); }
+        .contact-label { color: var(--accent-gold-light); font-size: 0.85rem; text-transform: uppercase; letter-spacing: 2px; margin-bottom: 10px; font-weight: 600; }
+        .contact-link { color: #fff; text-decoration: none; font-size: 1.05rem; font-weight: 500; transition: color 0.3s; }
+        .contact-link:hover { color: var(--accent-gold-light); }
+
+        .copyright { border-top: 1px solid rgba(255,255,255,0.1); padding-top: 25px; color: #94a3b8; font-size: 0.9rem; }
+
+        /* --- RESPONSIVE --- */
+        @media (max-width: 768px) {
+            .nav-links { display: none; }
+            .hero h1 { font-size: 2.8rem; }
+            .hero-buttons { flex-direction: column; }
+            .case-study-card { padding: 30px 20px; }
+            .arabic { font-size: 2rem; }
+            .contact-details { flex-direction: column; gap: 20px; }
+            .contact-item { width: 100%; }
+        }
+    </style>
 </head>
 <body>
 
@@ -22,14 +215,13 @@
     </nav>
 
     <section id="beranda" class="hero">
-        <div class="hero-overlay"></div>
         <div class="hero-content">
             <span class="badge">Universitas Pelita Bangsa</span>
             <h1>Pendidikan Agama Islam 6</h1>
             <p>Portofolio digital ini didedikasikan untuk mengkaji permasalahan akidah umat di era modern berlandaskan kemurnian tauhid. Pemahaman syariat ini sekaligus menjadi fondasi spiritual saya dalam mewujudkan visi membangun sistem Gerai Lokal Digital guna memberdayakan UMKM dan pedagang pasar tradisional di masa depan.</p>
             <p class="dosen">Dosen Pengampu: <br><strong>Ir. M. Zubair Abdurrohman, S.T., M.T.</strong></p>
             <div class="hero-buttons">
-                <a href="#studi-kasus" class="btn btn-accent">Lihat Studi Kasus</a>
+                <a href="#studi-kasus" class="btn btn-primary">Lihat Studi Kasus</a>
                 <a href="#metodologi" class="btn btn-outline">Metodologi Belajar</a>
             </div>
         </div>
@@ -40,7 +232,7 @@
             <div class="section-header text-center">
                 <span class="subtitle">Tugas Tulisan Pertama</span>
                 <h2>Studi Kasus Pembatal Syahadat</h2>
-                <div class="divider-accent"></div>
+                <div class="divider"></div>
             </div>
 
             <div class="case-study-card">
@@ -88,28 +280,28 @@
         </div>
     </section>
 
-    <section id="metodologi" class="section bg-darker">
+    <section id="metodologi" class="section bg-alt">
         <div class="container">
             <div class="section-header text-center">
                 <span class="subtitle">Pendekatan Akademis</span>
                 <h2>Metodologi Pembelajaran</h2>
-                <div class="divider-accent"></div>
+                <div class="divider"></div>
                 <p>Metode yang digunakan dalam menganalisis permasalahan dan tugas perkuliahan</p>
             </div>
             
             <div class="grid-3">
                 <div class="method-card">
-                    <div class="method-icon">I</div>
+                    <div class="method-icon">01</div>
                     <h3>Studi Literatur</h3>
                     <p>Mengkaji dalil secara komprehensif dari Al-Qur'an, Hadis, dan literatur para ulama sebagai pisau analisis utama terhadap berbagai persoalan akidah kontemporer.</p>
                 </div>
                 <div class="method-card">
-                    <div class="method-icon">II</div>
+                    <div class="method-icon">02</div>
                     <h3>Analisis Kasus</h3>
                     <p>Mengobservasi fenomena nyata di era digital (seperti pergeseran moral dan akidah di media sosial), kemudian mengkritisinya menggunakan parameter hukum Islam.</p>
                 </div>
                 <div class="method-card">
-                    <div class="method-icon">III</div>
+                    <div class="method-icon">03</div>
                     <h3>Digitalisasi Dakwah</h3>
                     <p>Mentransformasikan hasil telaah akademis ke dalam platform <em>website</em> agar materi dakwah dan pengetahuan dapat terdokumentasi serta diakses secara luas.</p>
                 </div>
@@ -120,7 +312,7 @@
     <footer id="kontak" class="footer-section">
         <div class="container text-center">
             <h2 class="footer-title">Mari Berdiskusi</h2>
-            <div class="divider-accent"></div>
+            <div class="divider"></div>
             <p class="footer-desc">Untuk keperluan diskusi terkait studi kasus, penugasan, maupun inisiasi pengembangan ekosistem digital di masa mendatang, silakan hubungi saya melalui saluran di bawah ini.</p>
             
             <div class="contact-details">
@@ -130,7 +322,7 @@
                 </div>
                 <div class="contact-item">
                     <span class="contact-label">Repository Kode</span>
-                    <a href="https://github.com/username-kamu" target="_blank" class="contact-link">github.com/username-kamu</a>
+                    <a href="https://github.com/agungcadw" target="_blank" class="contact-link">github.com/agungcadw</a>
                 </div>
             </div>
             
@@ -141,5 +333,4 @@
     </footer>
 
 </body>
-
 </html>
