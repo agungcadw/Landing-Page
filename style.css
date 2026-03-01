@@ -5,15 +5,15 @@
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&display=swap');
 
 :root {
-    --bg-main: #020617; /* Slate 950 - Hitam pekat kebiruan */
-    --bg-card: #0f172a; /* Slate 900 - Navy gelap */
+    --bg-main: #020617; /* Hitam pekat kebiruan */
+    --bg-card: #0f172a; /* Navy gelap */
     --bg-darker: #000000; /* Hitam murni */
     
     --text-primary: #f8fafc; /* Putih bersih */
     --text-muted: #94a3b8; /* Abu-abu kebiruan terang */
     
     --accent-blue: #2563eb; /* Royal Blue elegan */
-    --accent-blue-hover: #3b82f6; /* Biru terang untuk efek hover */
+    --accent-blue-hover: #3b82f6; /* Biru terang untuk hover */
     --accent-glow: rgba(37, 99, 235, 0.2);
     
     --border-color: #1e293b; /* Garis batas tipis */
